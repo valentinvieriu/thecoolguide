@@ -7,10 +7,27 @@ var request = require('request');
 // Get facebook feed
 exports.facebook = function(req, res) {
   var url = 'https://graph.facebook.com/v2.1/thecoolguide/posts/?access_token='+process.env.FACEBOOK_ID+'|'+process.env.FACEBOOK_SECRET+'&fields=id,status_type,picture,link,message_tags,message,name&limit=250';
-  console.log(url)
   request(url).pipe(res);
 };
 
+// Get facebook feed
+exports.facebookDetails = function(req, res) {
+  var url = 'https://graph.facebook.com/v2.1/?id='+req.params.id+'&access_token='+process.env.FACEBOOK_ID+'|'+process.env.FACEBOOK_SECRET+'';
+  request(url).pipe(res);
+};
+
+// Process Facebook Batch
+exports.facebookBatch = function(req, res) {
+  // console.log(req.body);
+  var url = 'https://graph.facebook.com/v2.1/';
+    request.post({
+      url:    url,
+      form:    { 
+        access_token: process.env.FACEBOOK_ID+'|'+process.env.FACEBOOK_SECRET ,
+        batch:req.body.batch
+      }
+    }).pipe(res);
+};
 // Get list of feeds
 exports.index = function(req, res) {
   Feed.find(function (err, feeds) {

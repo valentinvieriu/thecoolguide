@@ -27,14 +27,17 @@
     </p>
   </form>
   <h1>Read our Facebook Feed</h1>
+  <div class="row">
+    <leaflet markers="markers" center="munichCenter" layers="layers"></leaflet>
+  </div>
   <div class="row" masonry>
     <div class="col-md-4 masonry-brick" ng-repeat="item in fbData track by item.id">
       <a ng-href="{{::item.link}}" target="_blank">
         <img ng-src="{{::item.big_picture}}" class="img-responsive" alt=""/>
       </a>
       <p>{{::item.message}}</p>
-      <div class="tags" ng-show="item.message_tags">
-        <p><a ng-href="http://facebook.com/{{::tag[0].id}}" target="_blank" class="btn btn-xs btn-primary" ng-repeat="(key, tag) in item.message_tags">{{::tag[0].name|lowercase}}</a> </p>
+      <div class="tags" ng-show="item.tag">
+        <p><a ng-href="http://facebook.com/{{::tagid}}" target="_blank" class="btn btn-xs btn-primary" ng-repeat="(tagid, tag) in item.tag">{{::tag.name|lowercase}}</a> </p>
       </div>
     </div>
   </div>

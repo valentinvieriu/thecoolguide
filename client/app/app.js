@@ -7,7 +7,8 @@ angular.module('thecoolguideApp', [
   'ngRoute',
   'btford.socket-io',
   'ui.bootstrap',
-  'wu.masonry'
+  'wu.masonry',
+  'leaflet-directive'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
