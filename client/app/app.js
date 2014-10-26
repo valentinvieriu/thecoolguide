@@ -6,7 +6,8 @@ angular.module('thecoolguideApp', [
   'ngSanitize',
   'ngRoute',
   'btford.socket-io',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'wu.masonry'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
