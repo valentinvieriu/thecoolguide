@@ -10,11 +10,6 @@ angular.module('thecoolguideApp')
       };
     $scope.layers = {
             baselayers: {
-                googleTerrain: {
-                    name: 'Google Terrain',
-                    layerType: 'TERRAIN',
-                    type: 'google'
-                },
                 googleHybrid: {
                     name: 'Google Hybrid',
                     layerType: 'HYBRID',
